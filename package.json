@@ -1,0 +1,47 @@
+{
+  "name": "moigosa-backend",
+  "version": "1.0.0",
+  "description": "moigosa-backend",
+  "main": "src/app.js",
+  "repository": "https://github.com/rmfpdlxmtidl/moigosa-backend.git",
+  "author": "amazon-tears",
+  "license": "GPL-3.0-only",
+  "private": false,
+  "engines": {
+    "node": ">=14.15.4"
+  },
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon src/app.js --trace-warnings",
+    "start": "node src/app.js",
+    "format": "prettier . --write --ignore-path .gitignore",
+    "lint": "eslint . --fix --ignore-path .gitignore",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "jsonwebtoken": "^8.5.1",
+    "mariadb": "^2.5.4",
+    "morgan": "^1.10.0",
+    "pg": "^8.6.0",
+    "pg-format": "^1.0.4",
+    "session-file-store": "^1.5.0"
+  },
+  "devDependencies": {
+    "copyfiles": "^2.4.1",
+    "eslint": "^7.29.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "nodemon": "^2.0.9",
+    "prettier": "^2.3.2"
+  }
+}
