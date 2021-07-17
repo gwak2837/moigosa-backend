@@ -1,3 +1,8 @@
+/* eslint-disable import/first */
+import dotenv from 'dotenv'
+
+dotenv.config()
+
 import { dirname } from 'path'
 import postgres from 'pg'
 import { fileURLToPath } from 'url'
@@ -10,11 +15,16 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 const users = importSQL(__dirname, 'sql/users.sql')
 const userByEmail = importSQL(__dirname, 'sql/userByEmail.sql')
 
+console.log(process.env.POSTGRES_HOST)
+console.log(process.env.POSTGRES_DB)
+console.log(process.env.POSTGRES_USER)
+console.log(process.env.POSTGRES_PASSWORD)
+
 export const pool = new Pool({
   host: process.env.POSTGRES_HOST,
+  database: process.env.POSTGRES_DB,
   user: process.env.POSTGRES_USER,
   password: process.env.POSTGRES_PASSWORD,
-  database: process.env.POSTGRES_DB,
 })
 
 export async function poolQuery(query, values) {
