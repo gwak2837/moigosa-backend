@@ -15,11 +15,6 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 const users = importSQL(__dirname, 'sql/users.sql')
 const userByEmail = importSQL(__dirname, 'sql/userByEmail.sql')
 
-console.log(process.env.POSTGRES_HOST)
-console.log(process.env.POSTGRES_DB)
-console.log(process.env.POSTGRES_USER)
-console.log(process.env.POSTGRES_PASSWORD)
-
 export const pool = new Pool({
   host: process.env.POSTGRES_HOST,
   database: process.env.POSTGRES_DB,
@@ -47,17 +42,13 @@ export async function connectDatabase() {
 }
 
 export async function getUserList() {
-  const conn = await connectToMariaDB()
+  const { rows } = await poolQuery(await users)
 
-  const rows = await conn.query(await users)
-
-  if (conn) conn.end()
   return rows
 }
 
 export async function getUserByEmail(email) {
-  const rows = await poolQuery(await userByEmail, [email])
+  const { rows } = await poolQuery(await userByEmail, [email])
 
-  if (conn) conn.end()
   return rows
 }

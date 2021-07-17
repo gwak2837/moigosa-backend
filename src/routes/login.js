@@ -28,7 +28,7 @@ router.post('/', async (req, res) => {
     res.send({ jwt })
   } catch (error) {
     console.error(error)
-    res.status(500).send({ message: '서버 오류가 발생했어요' })
+    res.status(500).send({ message: error })
   }
 })
 
