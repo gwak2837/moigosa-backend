@@ -1,4 +1,8 @@
 /* eslint-disable no-console */
+import dotenv from 'dotenv'
+
+dotenv.config()
+
 import express, { json, urlencoded } from 'express'
 import morgan from 'morgan'
 import cookieParser from 'cookie-parser'
