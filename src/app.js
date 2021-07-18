@@ -37,7 +37,9 @@ app.use(
   })
 )
 
-app.get('/', () => 'Hello world!')
+app.get('/', (req, res) => {
+  res.status(200).send('Hello world')
+})
 app.use('/login', loginRouter)
 app.use('/register', registerRouter)
 app.use('/me', meRouter)
